@@ -1,0 +1,21 @@
+{
+    "name": "socket-io",
+    "version": "1.0.0",
+    "description": "Basic Chat Application using socket-io",
+    "main": "app.js",
+    "scripts": {
+        "start": "node ./src/app.js",
+        "test": "mocha ./specs/app.spec.js"
+    },
+    "homepage": "https://github.com/manish-baghel/scotch-io#readme",
+    "devDependencies": {
+        "nodemon": "^1.19.0"
+    },
+    "dependencies": {
+        "chai": "^4.2.0",
+        "ejs": "^3.0.1",
+        "express": "^4.17.1",
+        "mocha": "^7.1.0",
+        "socketio": "^1.0.0"
+    }
+}
