@@ -16,7 +16,7 @@ app.use(express.static('public'))
 //Routing function which denotes that whenever there is get request on the server,
 //it must send the index.ejs file(which we will be creating later) in response.
 app.get('/', (req, res) => {
-	res.render('index')
+	res.render('index.html')
 })
 
 //Listen on port 3000
