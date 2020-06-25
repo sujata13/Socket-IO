@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" const="text/html;charset=UTF-8" />
+    <link
+      href="http://fonts.googleapis.com/css?family=Comfortaa"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+    <title>Simple Chat App</title>
+  </head>
+
+  <body>
+    <header>
+      <h1>Super Chat</h1>
+    </header>
+
+    <section>
+      <div id="change_username">
+        <input id="username" type="text" />
+        <button id="send_username" type="button">Change username</button>
+      </div>
+    </section>
+
+    <section id="chatroom">
+      <section id="feedback"></section>
+    </section>
+
+    <section id="input_zone">
+      <input id="message" class="vertical-align" type="text" />
+      <button id="send_message" class="vertical-align" type="button">
+        Send
+      </button>
+    </section>
+
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+
+    <!-- Client side socket connection -->
+    <script>
+      $(function() {
+        // initiate connection
+        var socket = io.connect();
+        // Emit message
+        $("#send_message").click(function() {
+          socket.emit("chat_message", $("#message").val());
+        });
+        socket.on("chat_message", data => {
+          $("#feedback").html("");
+          $("#message").val("");
+          $("#chatroom").append(
+            "<p class='message'>" +
+              "Anonymous[" +
+              socket.id +
+              "]" +
+              ": " +
+              data +
+              "</p>"
+          );
+        });
+      });
+    </script>
+  </body>
+</html>
