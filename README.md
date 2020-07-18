@@ -1,5 +1,2 @@
 # Socket IO
-## Wiki-page
-
-<a href="https://workspace.konfinity.com/nodejs/socket-io/-/wikis/01-sockets_Introduction" target="_blank">Open wiki page</a>
-"# Socket-IO" 
+It is a **chatbox application** developed using Socket-IO. I have used the express framework to create a connection to the server that Socket.IO will work with.
